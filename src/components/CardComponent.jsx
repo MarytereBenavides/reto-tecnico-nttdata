@@ -1,5 +1,8 @@
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+
 
 function CardComponent({data}) {
     const dataMock=[
@@ -36,7 +39,10 @@ function CardComponent({data}) {
         }
     ]
     console.log("datacomo", data)
+
     let {email, name, picture , gender, location, dob } = data
+    const date = new Date(dob.date)
+    const formattedDate = format(date, 'dd MMMM yyyy', { locale: es })
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={picture.large} />
@@ -49,7 +55,7 @@ function CardComponent({data}) {
       <ListGroup className="list-group-flush">
         <ListGroup.Item>{location.country}</ListGroup.Item>
         <ListGroup.Item>{gender === "female" ? "Mujer" : "Hombre"}</ListGroup.Item>
-        <ListGroup.Item>{dob.date}</ListGroup.Item>
+        <ListGroup.Item>{formattedDate}</ListGroup.Item>
         <ListGroup.Item>{location.city}</ListGroup.Item>
       </ListGroup>
     </Card>
