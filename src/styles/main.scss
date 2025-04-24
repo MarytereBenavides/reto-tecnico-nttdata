@@ -94,6 +94,10 @@
     min-height: 200px;
 }
 
+div:hover>.card {
+    background-color: rgb(219, 194, 194);
+}
+
 @media (max-width: 768px) {
     .users-section {
         padding: 1.5rem;
