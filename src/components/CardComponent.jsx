@@ -47,7 +47,7 @@ function CardComponent({data}) {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={picture.large} />
       <Card.Body>
-        <Card.Title>{name.title}</Card.Title>
+        <Card.Title>{name.title} {name.first} {name.last}</Card.Title>
         <Card.Text>
           {email}
         </Card.Text>
