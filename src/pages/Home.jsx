@@ -14,15 +14,15 @@ function Home(){
 
     console.log("dataInfoUser", dataInfoUser);
     return(
-        <>
+        <section className="users-section">
             <h1 class="title">Listado de Usuarios</h1>
             {isInfoUserLoading && <SpinnerComponent/>}
-            {errorInfoUser && <p>Error al traer la data</p>}
+            {errorInfoUser && <p className="error-message">Error al traer la data</p>}
             {!isInfoUserLoading && !errorInfoUser && (
-                <div class="card-component" >
+                <div className="card-list" >
                 {dataInfoUser.map((user, index) => (
-                    <div key={index} class="card">
-                        <CardComponent key={index} data={user}/> 
+                    <div key={index} >
+                        <CardComponent key={index} data={user} className="card-wrapper"/> 
                     </div>
 
                 ))}
@@ -30,7 +30,7 @@ function Home(){
             )}
             
             
-        </>
+        </section>
     )
 }
 export default Home;
